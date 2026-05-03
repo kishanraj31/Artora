@@ -114,13 +114,13 @@ function ProductDetailPage() {
               onClick={handleAddToCart}
               className="w-full bg-[#C9A96E] text-[#0F0F0F] py-4 rounded-xl font-bold text-lg hover:bg-[#d4b782] transition-colors"
             >
-              {addedCartMsg ? 'Added to Cart ✓' : 'Add to Cart'}
+              {addedCartMsg ? 'Added to Cart ' : 'Add to Cart'}
             </button>
             <button 
               onClick={handleAddToWishlist}
               className="w-full bg-[#0F0F0F] border border-[#C9A96E] text-[#C9A96E] py-4 rounded-xl font-bold text-lg hover:bg-[#C9A96E]/10 transition-colors"
             >
-              {inWishlist ? 'In Wishlist ✓' : 'Add to Wishlist'}
+              {inWishlist ? 'In Wishlist ' : 'Add to Wishlist'}
             </button>
           </div>
           

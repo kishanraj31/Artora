@@ -28,9 +28,15 @@ function BuyerLayout({ children }) {
   const handleSidebarClick = (item) => {
     if (item === 'home') navigate('/buyer');
     else if (item === 'categories') navigate('/buyer?view=categories');
-    else if (item === 'wishlist') navigate('/buyer?view=wishlist');
-    else if (item === 'cart') navigate('/cart');
-    else if (item === 'orders') navigate('/orders');
+    else {
+      if (!isLoggedIn()) {
+        navigate('/login');
+        return;
+      }
+      if (item === 'wishlist') navigate('/buyer?view=wishlist');
+      else if (item === 'cart') navigate('/cart');
+      else if (item === 'orders') navigate('/orders');
+    }
   };
 
   const getSidebarClass = (item) => {
@@ -42,7 +48,8 @@ function BuyerLayout({ children }) {
     }`;
   };
 
-  if (!isBuyer) {
+  const isSeller = isLoggedIn() && getUserRole() === 'seller';
+  if (isSeller) {
     return <>{children}</>;
   }
 

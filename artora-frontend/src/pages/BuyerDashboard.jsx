@@ -1,6 +1,6 @@
 // BuyerDashboard — Main marketplace
 import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { getAllProducts } from '../services/productService';
 import { getWishlist, removeFromWishlist } from '../utils/wishlist';
@@ -114,37 +114,38 @@ function BuyerDashboard() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {wishlist.map(product => (
-              <div key={product._id} className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-[#C9A96E]/10 transition-all duration-300">
-                <div 
-                  className="cursor-pointer group"
-                  onClick={() => navigate(`/product/${product._id}`)}
-                >
-                  <div className="h-64 overflow-hidden relative">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex justify-center items-center transition-opacity duration-300 pointer-events-none">
-                      <button 
-                        className="bg-[#C9A96E] text-[#0F0F0F] px-8 py-3 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg pointer-events-auto hover:bg-[#d4b782]"
-                      >
-                        View Details
-                      </button>
-                    </div>
+              <div 
+                key={product._id} 
+                onClick={() => navigate(`/product/${product._id}`)}
+                className="group bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-[#C9A96E]/10 transition-all duration-300 transform hover:-translate-y-2 relative cursor-pointer"
+              >
+                <div className="h-64 overflow-hidden relative">
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex justify-center items-center transition-opacity duration-300 pointer-events-none">
+                    <Link 
+                      to={`/product/${product._id}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="bg-[#C9A96E] text-[#0F0F0F] px-8 py-3 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg pointer-events-auto hover:bg-[#d4b782] block"
+                    >
+                      View Details
+                    </Link>
                   </div>
-                  <div className="p-6 pb-0">
-                    <h3 className="text-xl font-semibold text-[#F5F5F0] mb-2 font-serif truncate group-hover:text-[#C9A96E] transition-colors">{product.name}</h3>
-                    <p className="text-2xl font-bold text-[#C9A96E] mb-6">₹{product.price}</p>
-                  </div>
+                </div>
+                <div className="p-6 pb-0">
+                  <h3 className="text-xl font-semibold text-[#F5F5F0] mb-2 font-serif truncate group-hover:text-[#C9A96E] transition-colors">{product.name}</h3>
+                  <p className="text-2xl font-bold text-[#C9A96E] mb-6">₹{product.price}</p>
                 </div>
                 <div className="px-6 pb-6">
                   <div className="flex gap-4">
                     <button 
-                      onClick={() => handleMoveToCart(product)}
-                      className="flex-1 bg-[#C9A96E] text-[#0F0F0F] py-2 rounded-xl font-bold hover:bg-[#d4b782] transition-colors"
+                      onClick={(e) => { e.stopPropagation(); handleMoveToCart(product); }}
+                      className="flex-1 bg-[#C9A96E] text-[#0F0F0F] py-2 rounded-xl font-bold hover:bg-[#d4b782] transition-colors pointer-events-auto"
                     >
                       Add to Cart
                     </button>
                     <button 
-                      onClick={() => handleRemoveFromWishlist(product._id)}
-                      className="px-4 bg-[#0F0F0F] border border-red-500/50 text-red-500 py-2 rounded-xl font-bold hover:bg-red-500/10 transition-colors"
+                      onClick={(e) => { e.stopPropagation(); handleRemoveFromWishlist(product._id); }}
+                      className="px-4 bg-[#0F0F0F] border border-red-500/50 text-red-500 py-2 rounded-xl font-bold hover:bg-red-500/10 transition-colors pointer-events-auto"
                     >
                       Remove
                     </button>
