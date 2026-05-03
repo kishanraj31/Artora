@@ -1,9 +1,7 @@
-// authController — register and login
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-// Register a new user
 exports.register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -46,7 +44,6 @@ exports.register = async (req, res) => {
   }
 };
 
-// Login an existing user
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;

@@ -30,4 +30,9 @@ router.post('/', protect, restrictTo('seller'), productController.createProduct)
 // @access  Private (Seller only - Owner)
 router.put('/:id', protect, restrictTo('seller'), productController.updateProduct);
 
+// @route   DELETE /api/products/:id
+// @desc    Delete a product
+// @access  Private (Seller only - Owner)
+router.delete('/:id', protect, restrictTo('seller'), productController.deleteProduct);
+
 module.exports = router;

@@ -17,13 +17,13 @@ function LandingPage() {
           Discover handcrafted treasures directly from local artisans. No middlemen. Just art.
         </p>
         <div className="flex flex-col sm:flex-row gap-6 relative z-10">
-          <Link 
-            to="/buyer" 
+          <Link
+            to="/buyer"
             className="bg-[#C9A96E] text-[#0F0F0F] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#d4b782] transition-all transform hover:scale-105 shadow-lg shadow-[#C9A96E]/20"
           >
             Explore Marketplace
           </Link>
-          <button 
+          <button
             onClick={() => navigate('/register', { state: { defaultRole: 'seller' } })}
             className="border-2 border-[#C9A96E] text-[#C9A96E] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#C9A96E]/10 transition-all transform hover:scale-105"
           >
@@ -52,6 +52,23 @@ function LandingPage() {
             <h3 className="text-xl font-serif font-semibold text-[#F5F5F0] mb-3">Support Local Art</h3>
             <p className="text-[#9A9A8A] leading-relaxed">Empower your local community by supporting independent artists and small businesses.</p>
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 md:px-12 lg:px-24 bg-[#1A1A1A] border-t border-[#2A2A2A]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-serif text-[#F5F5F0] mb-8">About Us</h2>
+          <p className="text-[#9A9A8A] text-lg leading-relaxed mb-12">
+            Artora was born from a simple belief: that true art deserves a dedicated stage. We are passionate about bridging the gap between immensely talented local artisans and art lovers worldwide. By cutting out the middlemen, we empower creators to thrive while offering buyers authentic, hand-crafted pieces that carry genuine soul and history.
+          </p>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=kishanraj8601@gmail.com&su=Support-Artora"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#0F0F0F] border border-[#C9A96E] text-[#C9A96E] px-10 py-4 rounded-full text-lg font-semibold hover:bg-[#C9A96E] hover:text-[#0F0F0F] transition-all transform hover:scale-105"
+          >
+            Contact Us
+          </a>
         </div>
       </section>
 

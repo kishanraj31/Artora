@@ -20,3 +20,13 @@ export const getSellerProducts = async () => {
   const response = await api.get('/products/seller/mine');
   return response.data;
 };
+
+export const updateProduct = async (id, productData) => {
+  const response = await api.put(`/products/${id}`, productData);
+  return response.data;
+};
+
+export const deleteProduct = async (id) => {
+  const response = await api.delete(`/products/${id}`);
+  return response.data;
+};

@@ -45,7 +45,7 @@ function RegisterPage() {
         <div className="bg-[#1A1A1A] py-8 px-6 sm:px-10 rounded-3xl border border-[#2A2A2A] shadow-2xl shadow-black">
           
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold tracking-widest text-[#C9A96E] uppercase font-serif mb-2">ARTORA</h2>
+            <h2 className="text-3xl font-bold text-[#C9A96E] font-serif mb-2">Sign Up</h2>
             <p className="text-[#9A9A8A] text-sm">Join the community of artisans and collectors.</p>
           </div>
 
